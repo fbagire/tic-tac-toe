@@ -48,26 +48,48 @@ function play() {
             }
         }
     }
-    return {availCells}
+    return { availCells }
 }
 
 
-function checkWinner(board){
-    // win
+
+function checkWinner(board, player) {
 
 
 
-    if (board['a1']==board['a2']==board['a3'])
-    if (board['a4']==board['a5']==board['a6'])
-    if (board['a7']==board['a8']==board['a9'])
+    function getPlayer(symbol) {
+        return symbol === player.playerOne ? 'Player One' : symbol === player.playerTwo ? 'Player Two' : 'Unknown Player';
+    }
+
+    if (board['a1'] == board['a2'] == board['a3']) {
+        return `Winner ${}`
+
+    }
+    else if (board['a4'] == board['a5'] == board['a6']) {
+
+    }
+    else if (board['a7'] == board['a8'] == board['a9']) {
+
+    }
 
 
-    if (board['a1']==board['a4']==board['a7'])
-    if (board['a2']==board['a5']==board['a8'])
-    if (board['a3']==board['a6']==board['a9'])
-    
-    if (board['a1']==board['a5']==board['a9'])
-    if (board['a3']==board['a5']==board['a7'])
-    
+    else if (board['a1'] == board['a4'] == board['a7']) {
+
+    }
+    else if (board['a2'] == board['a5'] == board['a8']) {
+
+    }
+    else if (board['a3'] == board['a6'] == board['a9']) {
+
+    }
+
+    else if (board['a1'] == board['a5'] == board['a9']) {
+
+    }
+    else if (board['a3'] == board['a5'] == board['a7']) {
+
+
+    }
+
 
 }

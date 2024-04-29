@@ -1,0 +1,21 @@
+.gamingZone button {
+    border: 0;
+    line-height: 5;
+    color: #fff;
+    border-radius: 8px;
+    background-color: rgba(220, 0, 0, 1);
+}
+
+.gamingZone {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 1px;
+
+}
+
+.gamingZone>button:hover {
+    background-color: rgb(152, 16, 16);
+}

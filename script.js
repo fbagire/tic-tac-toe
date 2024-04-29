@@ -15,9 +15,8 @@ function gameBoard() {
 
 function play() {
     const player = gameBoard().player;
-
     let availCells = gameBoard().cell;
-    console.log(`Player ${player.starter ? 'Two' : 'One'}'s Turn`)
+    console.log(`Player ${player.starter ? 'Two' : 'One'}'s Starts`)
 
     let starter = player.starter ? true : false
     loop1:
@@ -26,6 +25,7 @@ function play() {
         // prompt('choose your cell')
         if (starter) {
             let play2 = prompt("Player 2: Choose")
+            
             if (play2) {
                 availCells[play2] = !availCells[play2] ? 'O' : console.log('space used');
                 if (checkWinner(availCells, player) == 'Player Two wins!') {
@@ -56,7 +56,7 @@ function play() {
             }
         }
     }
-    return { availCells }
+    return availCells
 }
 
 
@@ -89,4 +89,22 @@ function checkWinner(board) {
     }
 }
 
-play();
+// play();
+
+function screenBuild() {
+    const board = gameBoard().cell
+    const gamingZone = document.querySelector('.gamingZone')
+
+    for (const arr of Object.keys(board)) {
+        const btn = document.createElement('button')
+        btn.setAttribute('id',arr)
+        btn.setAttribute('class','btnPlay')
+        btn.textContent=board[arr]
+        gamingZone.appendChild(btn)
+    }
+
+
+
+}
+
+screenBuild()

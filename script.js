@@ -73,6 +73,10 @@ function checkWinner(board) {
             console.log(getPlayer(board[cell1]) + ' wins!');
             return getPlayer(board[cell1]) + ' wins!';
         }
+
+        else if (Object.values(board).length >= 9 && Object.values(board).every((item) => !item == '')) {
+            return "It's a tie";
+        }
     }
 }
 

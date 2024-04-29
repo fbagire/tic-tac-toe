@@ -12,9 +12,10 @@ function gameBoard() {
 
     return { cell, player, cellStatus }
 }
-const player = gameBoard().player;
 
 function play() {
+    const player = gameBoard().player;
+
     let availCells = gameBoard().cell;
     console.log(`Player ${player.starter ? 'Two' : 'One'}'s Turn`)
 
@@ -60,6 +61,7 @@ function play() {
 
 
 function getPlayer(symbol) {
+    const player = gameBoard().player;
     return symbol === player.playerOne ? 'Player One' : symbol === player.playerTwo ? 'Player Two ' : 'Unknown Player';
 }
 
@@ -86,3 +88,5 @@ function checkWinner(board) {
         }
     }
 }
+
+play();

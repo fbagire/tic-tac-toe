@@ -19,43 +19,30 @@ function play() {
     console.log(`Player ${player.starter ? 'Two' : 'One'}'s Starts`)
 
     let starter = player.starter ? true : false
-    loop1:
-    for (let index = 0; index < 9; index++) {
 
-        // prompt('choose your cell')
-        if (starter) {
-            let play2 = prompt("Player 2: Choose")
-            
-            if (play2) {
-                availCells[play2] = !availCells[play2] ? 'O' : console.log('space used');
-                if (checkWinner(availCells, player) == 'Player Two wins!') {
-                    break loop1
-                }
+    const btnPlay = document.querySelectorAll('.btnPlay')
 
-                starter = !starter
 
-            }
-            else {
-                play2 = prompt("Player 2: Choose")
-
-            }
+    const playMove = function (btn) {
+        btn.textContent = starter ? 'X' : 'O';
+        btn.disabled = true;
+        availCells[btn.id] = starter ? 'X' : 'O';
+        if (checkWinner(availCells, player)) {
+            alert(checkWinner(availCells, player));
+            return;
         }
-        else {
-            let play1 = prompt("Player 1: Choose")
-            if (play1) {
-                availCells[play1] = !availCells[play1] ? 'X' : console.log('space used')
-                if (checkWinner(availCells, player) == 'Player One wins!') {
-                    break loop1
-                } starter = !starter
+        starter = !starter;
+    };
 
-            }
 
-            else {
-                play1 = prompt("Player 1: Choose")
 
-            }
-        }
-    }
+    btnPlay.forEach(function (btn) {
+        btn.addEventListener('click', function (event) {
+            playMove(btn)
+        })
+    })
+
+
     return availCells
 }
 
@@ -89,7 +76,6 @@ function checkWinner(board) {
     }
 }
 
-// play();
 
 function screenBuild() {
     const board = gameBoard().cell
@@ -97,9 +83,9 @@ function screenBuild() {
 
     for (const arr of Object.keys(board)) {
         const btn = document.createElement('button')
-        btn.setAttribute('id',arr)
-        btn.setAttribute('class','btnPlay')
-        btn.textContent=board[arr]
+        btn.setAttribute('id', arr)
+        btn.setAttribute('class', 'btnPlay')
+        btn.textContent = board[arr]
         gamingZone.appendChild(btn)
     }
 
@@ -108,3 +94,4 @@ function screenBuild() {
 }
 
 screenBuild()
+play()

@@ -19,6 +19,7 @@ function play() {
     console.log(`Player ${player.starter ? 'Two' : 'One'}'s Turn`)
 
     let starter = player.starter ? true : false
+    loop1:
     for (let index = 0; index < 9; index++) {
 
         // prompt('choose your cell')
@@ -26,7 +27,9 @@ function play() {
             let play2 = prompt("Player 2: Choose")
             if (play2) {
                 availCells[play2] = !availCells[play2] ? 'O' : console.log('space used');
-                checkWinner(availCells, player)
+                if (checkWinner(availCells, player) == 'Player Two wins!') {
+                    break loop1
+                }
 
                 starter = !starter
 
@@ -40,8 +43,9 @@ function play() {
             let play1 = prompt("Player 1: Choose")
             if (play1) {
                 availCells[play1] = !availCells[play1] ? 'X' : console.log('space used')
-                checkWinner(availCells)
-                starter = !starter
+                if (checkWinner(availCells, player) == 'Player One wins!') {
+                    break loop1
+                } starter = !starter
 
             }
 
@@ -78,40 +82,7 @@ function checkWinner(board) {
         const [cell1, cell2, cell3] = condition;
         if (board[cell1] && board[cell1] === board[cell2] && board[cell2] === board[cell3]) {
             console.log(getPlayer(board[cell1]) + ' wins!');
-            return;
+            return getPlayer(board[cell1]) + ' wins!';
         }
     }
 }
-
-
-
-
-// function checkWinner(board) {
-
-//     if (board['a1'] === board['a2'] === board['a3']) {
-//         console.log(getPlayer(board['a1']))
-//     }
-//     else if (board['a4'] === board['a5'] === board['a6']) {
-//         console.log(getPlayer(board['a1']))
-//     }
-//     else if (board['a7'] === board['a8'] === board['a9']) {
-//         console.log(getPlayer(board['a7']))
-//     }
-//     else if (board['a1'] === board['a4'] === board['a7']) {
-//         console.log(getPlayer(board['a1']))
-//     }
-//     else if (board['a2'] === board['a5'] === board['a8']) {
-//         console.log(getPlayer(board['a2']))
-//     }
-//     else if (board['a3'] === board['a6'] === board['a9']) {
-//         console.log(getPlayer(board['a3']))
-//     }
-//     else if (board['a1'] === board['a5'] === board['a9']) {
-//         console.log(getPlayer(board['a1']))
-//     }
-//     else if (board['a3'] === board['a5'] === board['a7']) {
-//         console.log(getPlayer(board['a3']))
-//     }
-
-
-// }

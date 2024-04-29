@@ -30,6 +30,7 @@ function play() {
         availCells[btn.id] = starter ? 'O' : 'X';
         if (checkWinner(availCells, player)) {
             setTimeout(() => alert(checkWinner(availCells, player)));
+            
             return;
         }
         starter = !starter;
@@ -80,7 +81,7 @@ function checkWinner(board) {
     for (const condition of winningConditions) {
         const [cell1, cell2, cell3] = condition;
         if (board[cell1] && board[cell1] === board[cell2] && board[cell2] === board[cell3]) {
-            console.log(getPlayer(board[cell1]) + ' wins!');
+            // console.log(getPlayer(board[cell1]) + ' wins!');
             return getPlayer(board[cell1]) + ' wins!';
         }
 

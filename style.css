@@ -4,12 +4,17 @@ body {
     background-color: burlywood;
 }
 
-.gamingZone button {
+.gamingZone >button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 0;
     line-height: 5;
     color: #fff;
     border-radius: 8px;
     background-color: rgba(220, 0, 0, 1);
+    font-size: 2em;
+
 }
 
 .gamingZone {

@@ -12,10 +12,10 @@ function gameBoard() {
 
     return { cell, player, cellStatus }
 }
+const player = gameBoard().player;
 
 function play() {
     let availCells = gameBoard().cell;
-    const player = gameBoard().player;
     console.log(`Player ${player.starter ? 'Two' : 'One'}'s Turn`)
 
     let starter = player.starter ? true : false
@@ -52,43 +52,38 @@ function play() {
 }
 
 
-
+function getPlayer(symbol) {
+    return symbol === player.playerOne ? 'Player One' : symbol === player.playerTwo ? 'Player Two' : 'Unknown Player';
+}
 function checkWinner(board, player) {
 
 
 
-    function getPlayer(symbol) {
-        return symbol === player.playerOne ? 'Player One' : symbol === player.playerTwo ? 'Player Two' : 'Unknown Player';
-    }
+
 
     if (board['a1'] == board['a2'] == board['a3']) {
-        return `Winner ${}`
-
+        return getPlayer(board['a1'])
     }
     else if (board['a4'] == board['a5'] == board['a6']) {
-
+        return getPlayer(board['a1'])
     }
     else if (board['a7'] == board['a8'] == board['a9']) {
-
+        return getPlayer(board['a7'])
     }
-
-
     else if (board['a1'] == board['a4'] == board['a7']) {
-
+        return getPlayer(board['a1'])
     }
     else if (board['a2'] == board['a5'] == board['a8']) {
-
+        return getPlayer(board['a2'])
     }
     else if (board['a3'] == board['a6'] == board['a9']) {
-
+        return getPlayer(board['a3'])
     }
-
     else if (board['a1'] == board['a5'] == board['a9']) {
-
+       return getPlayer(board['a1'])
     }
     else if (board['a3'] == board['a5'] == board['a7']) {
-
-
+        return getPlayer(board['a3'])
     }
 
 

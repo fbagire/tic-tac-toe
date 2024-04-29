@@ -28,7 +28,7 @@ function play() {
         btn.disabled = true;
         availCells[btn.id] = starter ? 'X' : 'O';
         if (checkWinner(availCells, player)) {
-            alert(checkWinner(availCells, player));
+            setTimeout(() => alert(checkWinner(availCells, player)));
             return;
         }
         starter = !starter;
@@ -75,7 +75,9 @@ function checkWinner(board) {
         }
 
         else if (Object.values(board).length >= 9 && Object.values(board).every((item) => !item == '')) {
-            return "It's a tie";
+            setTimeout(() => alert("It's a tie"));
+            // return true
+
         }
     }
 }

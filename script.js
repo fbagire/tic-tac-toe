@@ -16,17 +16,18 @@ function gameBoard() {
 function play() {
     const player = gameBoard().player;
     let availCells = gameBoard().cell;
-    console.log(`Player ${player.starter ? 'Two' : 'One'}'s Starts`)
+    // alert(`Player ${player.starter ? 'Two' : 'One'}'s Starts`)
 
     let starter = player.starter ? true : false
 
     const btnPlay = document.querySelectorAll('.btnPlay')
+    const resbtn = document.querySelector('#resbtn')
 
 
     const playMove = function (btn) {
-        btn.textContent = starter ? 'X' : 'O';
+        btn.textContent = starter ? 'O' : 'X';
         btn.disabled = true;
-        availCells[btn.id] = starter ? 'X' : 'O';
+        availCells[btn.id] = starter ? 'O' : 'X';
         if (checkWinner(availCells, player)) {
             setTimeout(() => alert(checkWinner(availCells, player)));
             return;
@@ -40,10 +41,19 @@ function play() {
         btn.addEventListener('click', function (event) {
             playMove(btn)
         })
+    });
+
+    resbtn.addEventListener('click', function () {
+        btnPlay.forEach(function (btn) {
+            btn.textContent = ''
+            btn.disabled = false;
+        })
+
+        availCells = {}
     })
 
 
-    return availCells
+    return { availCells, btnPlay }
 }
 
 
@@ -76,7 +86,7 @@ function checkWinner(board) {
 
         else if (Object.values(board).length >= 9 && Object.values(board).every((item) => !item == '')) {
             setTimeout(() => alert("It's a tie"));
-            // return true
+            return;
 
         }
     }
@@ -84,8 +94,20 @@ function checkWinner(board) {
 
 
 function screenBuild() {
-    const board = gameBoard().cell
-    const gamingZone = document.querySelector('.gamingZone')
+
+    const board = gameBoard().cell;
+    const gamingZone = document.querySelector('.gamingZone');
+    const header = document.querySelector('.header');
+    const phead = document.createElement('p');
+    const phead2 = document.createElement('p');
+    phead.textContent = 'Tic-Tac-Toe, JS learning';
+    phead2.innerHTML = '<span><a href="https://en.wikipedia.org/wiki/Tic-tac-toe">read more</a></span>';
+
+    header.appendChild(phead)
+    header.appendChild(phead2)
+
+
+
 
     for (const arr of Object.keys(board)) {
         const btn = document.createElement('button')
@@ -94,10 +116,13 @@ function screenBuild() {
         btn.textContent = board[arr]
         gamingZone.appendChild(btn)
     }
+    const resbtn = document.createElement('button')
+    resbtn.textContent = 'Reset';
+    resbtn.setAttribute('id', 'resbtn')
+    document.querySelector('.footer').appendChild(resbtn);
 
-
-
+    return resbtn
 }
-
 screenBuild()
 play()
+

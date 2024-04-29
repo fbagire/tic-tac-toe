@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: burlywood;
+}
+
 .gamingZone button {
     border: 0;
     line-height: 5;
@@ -18,4 +24,41 @@
 
 .gamingZone>button:hover {
     background-color: rgb(152, 16, 16);
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+}
+
+
+@font-face {
+    font-family: 'Gunslinger-nZaY';
+    src: url(gunslinger-font/Gunslinger-nZaY.ttf);
+}
+
+.header> :first-child {
+    font-family: 'Gunslinger-nZaY';
+    font-size: 2rem;
+}
+
+#resbtn {
+    border: 0;
+    background-color: aqua;
+    line-height: 30px;
+    padding: 0 20px;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 3px rgb(15, 143, 143),
+        inset -2px -2px 3px rgb(0, 0, 0.6)
+}
+
+#resbtn:active {
+
+    box-shadow: inset -2px -2px 3px rgb(15, 143, 143),
+        inset 2px 2px 3px rgb(0, 0, 0.6)
+}
+
+#resbtn:hover {
+    border: 2;
+    background-color: rgb(15, 163, 163);
 }

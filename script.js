@@ -22,16 +22,26 @@ function play() {
 
     const btnPlay = document.querySelectorAll('.btnPlay')
     const resbtn = document.querySelector('#resbtn')
+    const resetFunc = function () {
+        btnPlay.forEach(function (btn) {
+            btn.textContent = ''
+            btn.disabled = false;
+        })
 
+        availCells = {}
+    }
 
     const playMove = function (btn) {
         btn.textContent = starter ? 'O' : 'X';
         btn.disabled = true;
         availCells[btn.id] = starter ? 'O' : 'X';
-        if (checkWinner(availCells, player)) {
-            setTimeout(() => alert(checkWinner(availCells, player)));
-            
-            return;
+        if (checkWinner(availCells)) {
+            setTimeout(() => {
+                alert(checkWinner(availCells));
+                resetFunc()
+            }
+
+                , 1);
         }
         starter = !starter;
     };
@@ -44,15 +54,7 @@ function play() {
         })
     });
 
-    resbtn.addEventListener('click', function () {
-        btnPlay.forEach(function (btn) {
-            btn.textContent = ''
-            btn.disabled = false;
-        })
-
-        availCells = {}
-    })
-
+    resbtn.addEventListener('click', resetFunc)
 
     return { availCells, btnPlay }
 }
@@ -86,8 +88,7 @@ function checkWinner(board) {
         }
 
         else if (Object.values(board).length >= 9 && Object.values(board).every((item) => !item == '')) {
-            setTimeout(() => alert("It's a tie"));
-            return;
+            return "It's a tie";
 
         }
     }

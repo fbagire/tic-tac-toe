@@ -123,7 +123,7 @@ function screenBuild() {
     gamingZone.appendChild(player2)
 
     phead.textContent = 'Tic-Tac-Toe, JS learning';
-    phead2.innerHTML = '<span><a href="https://en.wikipedia.org/wiki/Tic-tac-toe">read more</a></span>';
+    phead2.innerHTML = '<span>New to this game?<a href="https://en.wikipedia.org/wiki/Tic-tac-toe">Learn more</a></span>';
 
     header.appendChild(phead)
     header.appendChild(phead2)

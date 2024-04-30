@@ -24,7 +24,7 @@ body {
     align-content: center;
     grid-template-columns: repeat(3, minmax(50px,100px));
     grid-template-rows: repeat(3, minmax(50px,100px));
-    gap: 1px;
+    gap: 5px;
     order: 2;
 
 }
@@ -91,7 +91,6 @@ body {
 
 
 #player2,#player1{
-    /* border: 1px solid goldenrod; */
     background-color:white;
     padding: 3px 20px;
     border-radius: 10px;

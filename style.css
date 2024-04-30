@@ -83,3 +83,11 @@ body {
     grid-column: 3/4;
     justify-self: start;
 }
+
+
+#player2,#player1{
+    /* border: 1px solid goldenrod; */
+    background-color:white;
+    padding: 3px 20px;
+    border-radius: 10px;
+}

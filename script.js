@@ -16,9 +16,8 @@ function gameBoard() {
 function play() {
     const player = gameBoard().player;
     let availCells = gameBoard().cell;
-    alert(`Player ${player.starter ? 'Two' : 'One'}'s Starts`)
-
     let starter = player.starter ? true : false
+    starter ? (player2.style.backgroundColor = 'rgb(27, 190, 190)', player1.style.backgroundColor = '') : (player1.style.backgroundColor = 'rgb(27, 190, 190)', player2.style.backgroundColor = '')
 
     const btnPlay = document.querySelectorAll('.btnPlay')
     const resbtn = document.querySelector('#resbtn')
@@ -32,6 +31,11 @@ function play() {
     }
 
     const playMove = function (btn) {
+        const player1 = document.querySelector('#player1')
+        const player2 = document.querySelector('#player2')
+
+
+
         btn.textContent = starter ? 'O' : 'X';
         btn.disabled = true;
         availCells[btn.id] = starter ? 'O' : 'X';
@@ -44,6 +48,8 @@ function play() {
                 , 1);
         }
         starter = !starter;
+        starter ? (player2.style.backgroundColor = 'rgb(27, 190, 190)', player1.style.backgroundColor = '') : (player1.style.backgroundColor = 'rgb(27, 190, 190)', player2.style.backgroundColor = '')
+
     };
 
 
@@ -101,7 +107,7 @@ function screenBuild() {
     const gamingButtons = document.querySelector('.gamingButtons');
     const gamingZone = document.querySelector('.gamingZone')
     const header = document.querySelector('.header');
-    const phead=document.createElement('p');
+    const phead = document.createElement('p');
     const phead2 = document.createElement('p');
     const player1 = document.createElement('p');
     const player2 = document.createElement('p');

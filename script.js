@@ -116,8 +116,8 @@ function screenBuild() {
 
     player1.setAttribute('id', 'player1');
     player2.setAttribute('id', 'player2');
-    player1.textContent = `Player ${gameBoard().player.playerOne == 'X' ? 'One' : 'Two'}: ${gameBoard().player.playerOne} `
-    player2.textContent = `Player ${gameBoard().player.playerOne == 'O' ? 'Two' : 'Two'}: ${gameBoard().player.playerTwo} `
+    player1.textContent = `Player ${gameBoard().player.playerOne == 'X' ? '1' : '2'}: ${gameBoard().player.playerOne} `
+    player2.textContent = `Player ${gameBoard().player.playerTwo == 'O' ? '2' : '1'}: ${gameBoard().player.playerTwo} `
 
     gamingZone.appendChild(player1)
     gamingZone.appendChild(player2)

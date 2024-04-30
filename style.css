@@ -14,7 +14,7 @@ body {
     border-radius: 8px;
     background-color: rgba(220, 0, 0, 1);
     font-size: 2em;
-    flex-shrink: 0;
+    flex-shrink: 1;
 
 }
 
@@ -79,13 +79,14 @@ body {
 
 #player1 {
     order: 1;
-
+    flex-shrink: 2;
     justify-self: end;
 }
 
 #player2 {
     order: 3;
     justify-self: start;
+    flex-shrink: 2;
 }
 
 

@@ -4,7 +4,7 @@ body {
     background-color: burlywood;
 }
 
-.gamingZone >button {
+.gamingButtons>button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ body {
 
 }
 
-.gamingZone {
+.gamingButtons {
     display: grid;
     justify-content: center;
     align-content: center;
@@ -27,7 +27,7 @@ body {
 
 }
 
-.gamingZone>button:hover {
+.gamingButtons>button:hover {
     background-color: rgb(152, 16, 16);
 }
 
@@ -66,4 +66,20 @@ body {
 #resbtn:hover {
     border: 2;
     background-color: rgb(27, 190, 190);
+}
+
+.gamingZone {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+#player1 {
+    grid-column: 1/2;
+    justify-self: end;
+}
+
+#player2 {
+    grid-column: 3/4;
+    justify-self: start;
 }

@@ -16,7 +16,7 @@ function gameBoard() {
 function play() {
     const player = gameBoard().player;
     let availCells = gameBoard().cell;
-    // alert(`Player ${player.starter ? 'Two' : 'One'}'s Starts`)
+    alert(`Player ${player.starter ? 'Two' : 'One'}'s Starts`)
 
     let starter = player.starter ? true : false
 
@@ -98,25 +98,36 @@ function checkWinner(board) {
 function screenBuild() {
 
     const board = gameBoard().cell;
-    const gamingZone = document.querySelector('.gamingZone');
+    const gamingButtons = document.querySelector('.gamingButtons');
+    const gamingZone = document.querySelector('.gamingZone')
     const header = document.querySelector('.header');
-    const phead = document.createElement('p');
+    const phead=document.createElement('p');
     const phead2 = document.createElement('p');
+    const player1 = document.createElement('p');
+    const player2 = document.createElement('p');
+
+
+
+    player1.setAttribute('id', 'player1');
+    player2.setAttribute('id', 'player2');
+    player1.textContent = `Player ${gameBoard().player.playerOne == 'X' ? 'One' : 'Two'}: ${gameBoard().player.playerOne} `
+    player2.textContent = `Player ${gameBoard().player.playerOne == 'O' ? 'Two' : 'Two'}: ${gameBoard().player.playerTwo} `
+
+    gamingZone.appendChild(player1)
+    gamingZone.appendChild(player2)
+
     phead.textContent = 'Tic-Tac-Toe, JS learning';
     phead2.innerHTML = '<span><a href="https://en.wikipedia.org/wiki/Tic-tac-toe">read more</a></span>';
 
     header.appendChild(phead)
     header.appendChild(phead2)
 
-
-
-
     for (const arr of Object.keys(board)) {
         const btn = document.createElement('button')
         btn.setAttribute('id', arr)
         btn.setAttribute('class', 'btnPlay')
         btn.textContent = board[arr]
-        gamingZone.appendChild(btn)
+        gamingButtons.appendChild(btn)
     }
     const resbtn = document.createElement('button')
     resbtn.textContent = 'Reset';

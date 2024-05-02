@@ -1,0 +1,27 @@
+{
+  "name": "tic-tac-toe",
+  "version": "1.0.0",
+  "description": "tic-tac-toe",
+  "private":"true",
+  
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fbagire/tic-tac-toe.git"
+  },
+  "author": "fbagire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fbagire/tic-tac-toe/issues"
+  },
+  "homepage": "https://github.com/fbagire/tic-tac-toe#readme",
+  "devDependencies": {
+    "webpack": "^5.91.0",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "moment": "^2.30.1"
+  }
+}

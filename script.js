@@ -10,7 +10,7 @@ function gameBoard() {
         return cellID ? true : false
     }
 
-    return { cell, player, cellStatus }
+    return { cell, player }
 }
 
 function play() {
@@ -93,9 +93,12 @@ function checkWinner(board) {
             return getPlayer(board[cell1]) + ' wins!';
         }
 
-        else if (Object.values(board).length >= 9 && Object.values(board).every((item) => !item == '')) {
+        else if (Object.values(board).length >= 9 && Object.values(board).every((item) => !item == '') && !(board[cell1] && board[cell1] === board[cell2] && board[cell2] === board[cell3])) {
             return "It's a tie";
 
+        }
+        else {
+            return ''
         }
     }
 }
